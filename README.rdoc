@@ -1,4 +1,11 @@
+<<<<<<< HEAD
+Marco Antonio Via
 Jorge Trujillo
+Daniel Fujimoto Gamero
+
+=======
+JTV
+>>>>>>> 978f9feb1eb5ccdd2c97e488e2904111dbf34428
 
 == Welcome to Rails
 
