@@ -1,4 +1,4 @@
-JTV
+Jorge Trujillo
 
 == Welcome to Rails
 
