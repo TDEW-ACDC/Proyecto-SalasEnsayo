@@ -1,5 +1,6 @@
 Jorge Trujillo
 Marco Via
+Paul Gutierrez
 
 == Welcome to Rails
 
