@@ -1,0 +1,2 @@
+module SalasHelper
+end
