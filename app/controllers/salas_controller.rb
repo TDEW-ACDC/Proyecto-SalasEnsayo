@@ -80,4 +80,28 @@ class SalasController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # POST /search
+  # POST /search.json
+  def search
+  	if(params[:nombre])
+	    @salas = Sala.search(params[:nombre])
+	    render action: "map"
+  	end
+  end
+
+  # POST /map
+  # POST /map.json
+  def map
+  	if(params[:nombre])
+	    @salas = Sala.search(params[:nombre])
+	  else
+    	@salas = Sala.all
+  	end
+
+    respond_to do |format|
+      format.html # map.html.erb
+      format.json { render json: @salas }
+    end
+  end
 end

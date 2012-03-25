@@ -1,6 +1,10 @@
-<h1>Editing sala</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @sala %> |
-<%= link_to 'Back', salas_path %>
+<div data-role="page">
+	<div data-role="header">
+    <%= link_to 'Back', salas_path, "data-icon" => "back", "data-theme" => "b", "data-ajax" => "false" %>
+	  <h1>Editing sala</h1>
+	  <%= link_to 'Show', @sala, "data-icon" => "search", "data-ajax" => "false" %>
+	</div><!-- /header -->
+	<div data-role="content">
+	  <%= render 'form' %>
+  </div><!-- /content -->
+</div><!-- /page -->

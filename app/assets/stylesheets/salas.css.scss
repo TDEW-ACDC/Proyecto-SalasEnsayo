@@ -1,3 +1,38 @@
 // Place all the styles related to the salas controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+/*
+html, body {
+  font-size: .9em;
+  font-family: Arial, Helvetica, Sans-serif;
+  background: #666666;
+  padding: 0px;
+}
+*/
+
+.details-page {
+  width: 100%;
+  height: 100%;
+}
+
+.map_content {
+  padding: 0px;
+  /*width: 100%;*/
+  /*height: 100%;*/
+  overflow: hidden;
+}
+
+#map_canvas {
+  width: 100%;
+  /*height: 100%;*/
+  height: 600px;
+  margin-top: 20px;
+  padding: 0;
+  text-shadow: none;
+}
+
+.infowindow {
+	font-size: 12px;
+	width: 300px;
+	word-wrap: break-word;
+}

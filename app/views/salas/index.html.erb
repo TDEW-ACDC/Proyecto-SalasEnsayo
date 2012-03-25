@@ -1,31 +1,22 @@
-<h1>Listing salas</h1>
-
-<table>
-  <tr>
-    <th>Nombre</th>
-    <th>Direccion</th>
-    <th>Telefono</th>
-    <th>Email</th>
-    <th>Costo</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @salas.each do |sala| %>
-  <tr>
-    <td><%= sala.nombre %></td>
-    <td><%= sala.direccion %></td>
-    <td><%= sala.telefono %></td>
-    <td><%= sala.email %></td>
-    <td><%= sala.costo %></td>
-    <td><%= link_to 'Show', sala %></td>
-    <td><%= link_to 'Edit', edit_sala_path(sala) %></td>
-    <td><%= link_to 'Destroy', sala, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Sala', new_sala_path %>
+<div data-role="page">
+  <div data-role="header">
+    <%= link_to 'Home', "/", "data-icon" => "home", "data-theme" => "b", "data-ajax" => "false" %>
+    <h1>List View</h1>
+    <%= link_to 'New Sala', new_sala_path, "data-icon" => "plus", "data-ajax" => "false" %>
+  </div><!-- /header -->
+  <div data-role="content">
+    <ul data-role="listview" data-inset="true" data-filter="true">
+      <% @salas.each do |sala| %>
+      <li>
+        <a href="/salas/<%= sala.id %>" data-ajax="false">
+          <h3><%= sala.nombre %></h3>
+          <p><strong><%= sala.direccion %></strong></p>
+          <p><%= sala.telefono %></p>
+          <p><%= sala.email %></p>
+        </a>
+        <%= link_to 'Edit', edit_sala_path(sala), "data-icon" => "gear", "data-ajax" => "false" %>
+      </li>
+      <% end %>
+    </ul>
+  </div><!-- /content -->
+</div><!-- /page -->

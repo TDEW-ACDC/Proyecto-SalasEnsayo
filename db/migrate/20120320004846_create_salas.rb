@@ -6,6 +6,8 @@ class CreateSalas < ActiveRecord::Migration
       t.string :telefono
       t.string :email
       t.string :costo
+      t.string :lat
+      t.string :lng
 
       t.timestamps
     end

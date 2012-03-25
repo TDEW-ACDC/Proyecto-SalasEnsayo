@@ -2,7 +2,6 @@
   <% if @sala.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@sala.errors.count, "error") %> prohibited this sala from being saved:</h2>
-
       <ul>
       <% @sala.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -10,7 +9,6 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= f.label :nombre %><br />
     <%= f.text_field :nombre %>
@@ -30,6 +28,14 @@
   <div class="field">
     <%= f.label :costo %><br />
     <%= f.text_field :costo %>
+  </div>
+  <div class="field">
+    <%= f.label :lat %><br />
+    <%= f.text_field :lat %>
+  </div>
+  <div class="field">
+    <%= f.label :lng %><br />
+    <%= f.text_field :lng %>
   </div>
   <div class="actions">
     <%= f.submit %>

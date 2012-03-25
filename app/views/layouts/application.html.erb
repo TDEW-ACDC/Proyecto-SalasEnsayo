@@ -1,25 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ProyectoSalasensayo</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <title>Proyecto Salas de Ensayo</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
   <%= javascript_include_tag "application" %>
+  <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
   <%= csrf_meta_tags %>
-  	<div style="padding: 10px; font-size: 28px; font-weight: bold; background-color: orange;">Salas de Ensayo</div>
-    <div id="user_nav" style="background-color: #39D;">  
-	  <% if current_user %>  
-	    Bienvenido!  
-	    <%= link_to "Salir", signout_path %> 
-	  <% else %>  
-	    <%= link_to "Ingresar con Twitter", "/auth/twitter" %>  
-	  <% end %>  
-    </div> 
 </head>
 <body>
-
-<%= yield %>
-
-
-
+  <%= yield %>
 </body>
 </html>

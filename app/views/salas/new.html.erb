@@ -1,5 +1,9 @@
-<h1>New sala</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', salas_path %>
+<div data-role="page">
+	<div data-role="header">
+    <%= link_to 'Back', salas_path, "data-icon" => "back", "data-theme" => "b", "data-ajax" => "false" %>
+	  <h1>New sala</h1>
+	</div><!-- /header -->
+	<div data-role="content">
+	  <%= render 'form' %>
+  </div><!-- /content -->
+</div><!-- /page -->
