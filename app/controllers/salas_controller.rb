@@ -2,7 +2,13 @@ class SalasController < ApplicationController
   # GET /salas
   # GET /salas.json
   def index
-    @salas = Sala.all
+    if(params[:nombre])
+      @salas = Sala.search(params[:nombre])   
+    elsif(params[:instrumentos])
+      @salas = Sala.search("rm")    
+    else
+      @salas = Sala.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -84,10 +90,12 @@ class SalasController < ApplicationController
   # POST /search
   # POST /search.json
   def search
-  	if(params[:nombre])
-	    @salas = Sala.search(params[:nombre])
-	    render action: "map"
-  	end
+    @instrumentos = Instrumento.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @salas }
+    end
   end
 
   # POST /map

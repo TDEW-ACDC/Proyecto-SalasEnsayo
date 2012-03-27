@@ -6,9 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-r1 = Role.create(description: "Admin")
-r2 = Role.create(description: "Client")
-
 Sala.create(nombre: "Rm Studios", direccion: "Calle Las Esmeraldas Mz. D Lote 5 Urb. Sr. De Los Milagros - San Martin De Porres - Lima", telefono: "Cel.972-998329  Tlf.(01)726-6204", email: "reservas@rmstudios.com", costo: "20", lat: "-11.984374374934457", lng: "-77.08559274673462")
 Sala.create(nombre: "Boulangger", direccion: "Calle Las Fresas 106 Urb.Avitentel - San Juan De Miraflores - Lima", telefono: "Tlf.(01)276-9201", email: "reservas@boulangger.com", costo: "18", lat: "-12.151378890689127", lng: "-76.97931969810485")
 Sala.create(nombre: "Masterline", direccion: "Av. Bolognesi 326 - Barranco - Lima", telefono: "Fijo: 2473089 / RPM: #278837 / NEXTEL: 100*5941", email: "reservas@masterline.com ", costo: "22", lat: "-12.142456281127853", lng: "-77.01812959391782")
@@ -19,3 +16,10 @@ Sala.create(nombre: "G.O.R", direccion: "Av. La universidad agraria s/q flora tr
 Sala.create(nombre: "Zairam Records", direccion: "Av. Larco 321 - Miraflores - Lima", telefono: "990 48558", email: "reservas@zairamrecords.com", costo: "30", lat: "-12.120334", lng: "-77.030511")
 Sala.create(nombre: "Sonica Producciones", direccion: "Jr. Manuel Arrisueno 637, Sta Catalina - La Victoria - Lima", telefono: "472 4709 - 992 570391 - 121*3468", email: "reservas@sonicoproducciones.com", costo: "20", lat: "-12.087735110195341", lng: "-77.01142925574493")
 Sala.create(nombre: "Groove", direccion: "Av. Rafael Escardo cdra. 6. Maranga - San Miguel - Lima", telefono: "774 7301", email: "reservas@groove.com", costo: "22", lat: "-12.075098453894533", lng: "-77.09248024775695")
+
+Instrumento.create(nombre: "Guitarra")
+Instrumento.create(nombre: "Bajo")
+Instrumento.create(nombre: "Bateria")
+Instrumento.create(nombre: "Organo")
+Instrumento.create(nombre: "Guitarra Acustica")
+Instrumento.create(nombre: "Violin")

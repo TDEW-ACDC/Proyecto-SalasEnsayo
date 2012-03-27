@@ -1,8 +1,7 @@
 <div data-role="page">
 	<div data-role="header">
-    <%= link_to 'Back', salas_path, "data-icon" => "back", "data-theme" => "b", "data-ajax" => "false" %>
-	  <h1>Editing sala</h1>
-	  <%= link_to 'Show', @sala, "data-icon" => "search", "data-ajax" => "false" %>
+    <%= link_to 'Back', "/listview", "data-icon" => "back", "data-theme" => "b", "data-ajax" => "false" %>
+    <h1>Editar Sala</h1>
 	</div><!-- /header -->
 	<div data-role="content">
 	  <%= render 'form' %>

@@ -1,10 +1,11 @@
 <div data-role="page">
   <div data-role="header">
-    <%= link_to 'Home', "/", "data-icon" => "home", "data-theme" => "b", "data-ajax" => "false" %>
+    <%= link_to 'Back', "/", "data-icon" => "back", "data-theme" => "b" %>
     <h1>List View</h1>
-    <%= link_to 'New Sala', new_sala_path, "data-icon" => "plus", "data-ajax" => "false" %>
+    <%= link_to "New Sala", new_sala_path, "data-role" => "button", "data-icon" => "plus", "data-theme" => "b", "data-ajax" => "false", "class" => "ui-btn-right" %>
   </div><!-- /header -->
   <div data-role="content">
+
     <ul data-role="listview" data-inset="true" data-filter="true">
       <% @salas.each do |sala| %>
       <li>

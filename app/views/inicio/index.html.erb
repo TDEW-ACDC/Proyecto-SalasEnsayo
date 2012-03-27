@@ -1,13 +1,9 @@
 <div data-role="page">
 	<div data-role="header">
-		<h1>Salas de Ensayo :: Home</h1>
-		<% if current_user %>
-			<%= link_to "Cerrar Sesión", signout_path, "data-role" => "button", "data-icon" => "star", "data-theme" => "b", "data-ajax" => "false", "class" => "ui-btn-right" %>
-		<% end %>
+		<h1>La Sala.PE</h1>
 	</div><!-- /header -->
 	<div data-role="content">
 		<% if current_user %>
-			Bienvenido!
 			<%= link_to "List View", "/listview", "data-role" => "button", "data-icon" => "arrow-r", "data-iconpos" => "right", "data-ajax" => "false" %>
 			<%= link_to "Map View", "/mapview", "data-role" => "button", "data-icon" => "arrow-r", "data-iconpos" => "right", "data-ajax" => "false" %>
 			<%= link_to "Buscador", "/search", "data-role" => "button", "data-icon" => "arrow-r", "data-iconpos" => "right", "data-ajax" => "false" %>
