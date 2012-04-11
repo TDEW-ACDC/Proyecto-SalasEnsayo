@@ -1,8 +1,18 @@
 Proyecto de TDEW
 
+La aplicacion desarrollada es sobre las salas de ensayo para que los musicos amateur puedan buscar la sala de su preferencia solo en la ciiudad de lima en sus respectivos distritos, tambien muestra la ubicacion exacta en el google maps y desplegada en heroku. 
+
 Integrantes:
 
 
-Fujimoto Daniel
-Fuentes Rivera Galvan Javier
-Gutierrez Paul
+
+MARCO ANTONIO VIA ESCALANTE
+JORGE GABRIEL TRUJILLO VALERIO
+PAUL ISRAEL GUTIERREZ MAGALLANES
+DANIEL AUGUSTO FUJIMOTO GAMERO
+JAVIER FUENTES RIVERA GALVAN
+
+
+Link proyecto desplegado en  Heroku :
+http://salasensayo.herokuapp.com/
+
