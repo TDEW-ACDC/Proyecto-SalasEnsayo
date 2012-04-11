@@ -5,6 +5,15 @@
     <h1><%= @sala.nombre %></h1>
     <%= link_to 'Edit', edit_sala_path, "data-icon" => "gear", "data-ajax" => "false" %>
   </div><!-- /header -->
+
+  <div>
+  <% if Vote.where(:voter_id => current_user.id, :voteable_id => @sala.id, ).count > 0 %>
+    <div data-role="button", data-inline="true"> <%= Vote.where(:voteable_id => @sala.id).count %> Likes </div>
+  <% else %>
+    <%= link_to 'Like', like_sala_path(@sala), :method => :sala, "data-role" => "button", "data-icon" => "plus", "data-inline" => "true", "data-theme" => "b"%>
+  <% end %>
+  </div>
+  
   <div data-role="content" class="map_content">
     <ul data-role="listview">
       <p id="notice"><%= notice %></p>

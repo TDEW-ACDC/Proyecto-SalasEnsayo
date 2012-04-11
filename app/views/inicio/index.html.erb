@@ -6,7 +6,6 @@
 		<% if current_user %>
 			<%= link_to "List View", "/listview", "data-role" => "button", "data-icon" => "arrow-r", "data-iconpos" => "right", "data-ajax" => "false" %>
 			<%= link_to "Map View", "/mapview", "data-role" => "button", "data-icon" => "arrow-r", "data-iconpos" => "right", "data-ajax" => "false" %>
-			<%= link_to "Buscador", "/search", "data-role" => "button", "data-icon" => "arrow-r", "data-iconpos" => "right", "data-ajax" => "false" %>
 			<%= link_to 'Salir', signout_path, "data-role" => "button", "data-icon" => "delete", "data-theme" => "b" %>
 		<% else %>
 			<%= link_to "Ingresar con Twitter", "/auth/twitter", "data-role" => "button", "data-icon" => "star", "data-ajax" => "false" %>

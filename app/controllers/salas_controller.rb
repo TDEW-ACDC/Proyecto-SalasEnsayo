@@ -112,4 +112,15 @@ class SalasController < ApplicationController
       format.json { render json: @salas }
     end
   end
+
+  def like
+    begin
+      @sala = Sala.find(params[:id])
+      current_user.vote_for(@sala)
+
+      redirect_to sala_path(@sala)
+    end
+
+  end
+
 end

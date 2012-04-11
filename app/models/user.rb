@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
+	acts_as_voter
 
-validates_presence_of :uid, :provider
-validates_uniqueness_of :uid, :scope => :provider
+	validates_presence_of :uid, :provider
+	validates_uniqueness_of :uid, :scope => :provider
 
 def self.create_with_omniauth(auth)  
     create! do |user|  
