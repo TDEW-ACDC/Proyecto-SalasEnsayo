@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(:version => 20120411064020) do
     t.datetime "updated_at", :null => false
   end
 
+
+
   create_table "users", :force => true do |t|
     t.string   "provider"
     t.string   "uid"

@@ -24,11 +24,11 @@ http://leancanvas.com/canvases/12877
 
 ==Integrantes:
 
-Marco Antonio Via Escalante 
-Jorge Gabriel Trujillo Valerio
-Javier Fuentes Rivera Galván
-Paul Israel Gutiérrez Magallanes
-Daniel Augusto Fujimoto Gamero
+- Marco Antonio Via Escalante 
+- Jorge Gabriel Trujillo Valerio
+- Javier Fuentes Rivera Galván
+- Paul Israel Gutiérrez Magallanes
+- Daniel Augusto Fujimoto Gamero
 
 
 
