@@ -1,29 +1,28 @@
-<div data-role="page">
-  <div data-role="header">
-    <%= link_to 'Back', "/", "data-icon" => "back", "data-theme" => "b" %>
-    <h1>List View</h1>
-    <%= link_to "New Sala", new_sala_path, "data-role" => "button", "data-icon" => "plus", "data-theme" => "b", "data-ajax" => "false", "class" => "ui-btn-right" %>
-  </div><!-- /header -->
-  <div data-role="content">
-
-    <ul data-role="listview" data-inset="true" data-filter="true">
-      <% @salas.each do |sala| %>
-      <li>
-        <a href="/salas/<%= sala.id %>" data-ajax="false">
-          <h3><%= sala.nombre %></h3>
-          <p><strong><%= sala.direccion %></strong></p>
-          <p><%= sala.telefono %></p>
-          <p><%= sala.email %></p>
-          <p><strong>Instrumentos:</strong></p>
-          <ul>
-          <% sala.instrumentos.each do |instrumento| %>
-            <li><p><%= instrumento.nombre %></p></li>
-          <%end%>
-          </ul>
-        </a>
-        <%= link_to 'Edit', edit_sala_path(sala), "data-icon" => "gear", "data-ajax" => "false" %>
-      </li>
+<% content_for :header do %>
+  <%= link_to 'Back', "/", "data-icon" => "back", "data-theme" => "b" %>
+  <h1>List View</h1>
+  <%= link_to "New Sala", new_sala_path, "data-role" => "button", "data-icon" => "plus", "data-theme" => "b", "data-ajax" => "false", "class" => "ui-btn-right" %>
+<% end %>
+<ul data-role="listview" data-inset="true" data-filter="true">
+  <% @salas.each do |sala| %>
+  <li>
+    <a href="/salas/<%= sala.id %>" data-ajax="false">
+      <h3><%= sala.nombre %></h3>
+      <p><strong><%= sala.direccion %></strong></p>
+      <p><%= sala.telefono %></p>
+      <p><%= sala.email %></p>
+      <% if sala.instrumentos.count > 0 %>
+      <p><strong>Instrumentos:</strong></p>
+      <ul>
+      <% sala.instrumentos.each do |instrumento| %>
+        <li><p><%= instrumento.nombre %></p></li>
+      <%end%>
+      </ul>
       <% end %>
-    </ul>
-  </div><!-- /content -->
-</div><!-- /page -->
+    </a>
+    <% if current_user.id == sala.creator_id %>
+      <%= link_to 'Edit', edit_sala_path(sala), "data-icon" => "gear", "data-ajax" => "false" %>
+    <% end %>
+  </li>
+  <% end %>
+</ul>

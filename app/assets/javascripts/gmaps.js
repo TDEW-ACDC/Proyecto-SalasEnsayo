@@ -1,3 +1,4 @@
+/*
 GMaps = function(options){
   var self = this;
   var context_menu_style = 'position:absolute;display:none;min-width:100px;background:white;\
@@ -893,3 +894,4 @@ google.maps.Marker.prototype.setFences = function(fences){
 google.maps.Marker.prototype.addFence = function(fence){
   this.fences.push(fence);
 };
+*/

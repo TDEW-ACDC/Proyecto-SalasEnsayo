@@ -19,7 +19,10 @@ class SalasController < ApplicationController
   # GET /salas/1
   # GET /salas/1.json
   def show
+    current_user = User.find(session[:user_id])
+
     @sala = Sala.find(params[:id])
+    @reservado = Reserva.where(:sala_id => @sala.id, :user_id => current_user.id).count > 0 ? true : false
 
     respond_to do |format|
       format.html # show.html.erb
@@ -46,7 +49,10 @@ class SalasController < ApplicationController
   # POST /salas
   # POST /salas.json
   def create
+    current_user = User.find(session[:user_id])
+
     @sala = Sala.new(params[:sala])
+    @sala.creator_id = current_user.id
 
     respond_to do |format|
       if @sala.save

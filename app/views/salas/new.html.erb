@@ -1,10 +1,5 @@
-<div data-role="page">
-	<div data-role="header">
-	<%= link_to 'Back', "/listview", "data-icon" => "back", "data-theme" => "b", "data-ajax" => "false" %>
-    <h1>Nueva Sala</h1>
-    <%= link_to "Cerrar Sesión", signout_path, "data-role" => "button", "data-icon" => "star", "data-theme" => "b", "data-ajax" => "false", "class" => "ui-btn-right" %>
-	</div><!-- /header -->
-	<div data-role="content">
-	  <%= render 'form' %>
-  </div><!-- /content -->
-</div><!-- /page -->
+<% content_for :header do %>
+	<%= link_to 'Back', salas_path, "data-icon" => "back", "data-theme" => "b", "data-ajax" => "false" %>
+	<h1>New sala</h1>
+<% end %>
+<%= render 'form' %>

@@ -1,58 +1,70 @@
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-<div id="details" data-role="page" class="details-page">
-  <div data-role="header">
-    <%= link_to 'Back', salas_path, "data-icon" => "back", "data-theme" => "b", "data-ajax" => "false" %>
-    <h1><%= @sala.nombre %></h1>
+<% content_for :header do %>
+  <%= link_to 'Back', salas_path, "data-icon" => "back", "data-theme" => "b", "data-ajax" => "false" %>
+  <h1><%= @sala.nombre %></h1>
+  <% if current_user.id == @sala.creator_id %>
     <%= link_to 'Edit', edit_sala_path, "data-icon" => "gear", "data-ajax" => "false" %>
-  </div><!-- /header -->
-
-  <div><!-- /Recomendar -->
+  <% else %>
+    <% if !@reservado %>
+      <%= link_to 'Reservar', "/reservas/" + @sala.id.to_s + "/book", "data-icon" => "gear", "data-ajax" => "false" %>
+    <% else %>
+      <%= link_to 'Reservado', "#", "data-theme" => "e", "data-icon" => "check" %>
+    <% end %>
+  <% end %>
+<% end %>
+<div>
   <% if Vote.where(:voter_id => current_user.id, :voteable_id => @sala.id, ).count > 0 %>
     <div data-role="button", data-inline="true">
     <% if Vote.where(:voteable_id => @sala.id).count > 1 %>
-        <%= Vote.where(:voteable_id => @sala.id).count %> personas lo recomiendan
+        <%= Vote.where(:voteable_id => @sala.id).count %> persona(s) la recomienda(n)
     <%else%>
         Tu lo recomiendas
     <% end %>
     </div>
   <% else %>
     <%= link_to 'Recomendar', like_sala_path(@sala), :method => :sala, "data-role" => "button", "data-icon" => "plus", "data-inline" => "true", "data-theme" => "b"%>
-    <div data-role="button", data-inline="true"> <%= Vote.where(:voteable_id => @sala.id).count %> personas lo recomiendan </div>
+    <div data-role="button", data-inline="true"> <%= Vote.where(:voteable_id => @sala.id).count %> persona(s) la recomienda(n) </div>
   <% end %>
-  </div>
-  
-  <div data-role="content" class="map_content">
-    <ul data-role="listview">
-      <p id="notice"><%= notice %></p>
-      <p>
-        <b>Direccion:</b>
-        <%= @sala.direccion %>
-      </p>
-      <p>
-        <b>Telefono:</b>
-        <%= @sala.telefono %>
-      </p>
-      <p>
-        <b>Email:</b>
-        <%= @sala.email %>
-      </p>
-      <p>
-        <b>Costo:</b>
-        <%= @sala.costo %>
-      </p>
-
-      <p><strong>Instrumentos:</strong></p>
-      <ul>
-      <% @sala.instrumentos.each do |instrumento| %>
-          <li><p><%= instrumento.nombre %></p></li>
-      <%end%>
-      </ul>
-    </ul>
-    <div class="map_content">
-      <div id="map_canvas"></div>
-    </div>
-  </div><!-- /content -->
-</div><!-- /page -->
+</div><!-- /recomendar --> 
+<div>
+  <p id="notice"><%= notice %></p>
+  <p>
+    <b>Direccion:</b>
+    <%= @sala.direccion %>
+  </p>
+  <p>
+    <b>Telefono:</b>
+    <%= @sala.telefono %>
+  </p>
+  <p>
+    <b>Email:</b>
+    <%= @sala.email %>
+  </p>
+  <p>
+    <b>Costo:</b>
+    <%= @sala.costo %>
+  </p>
+  <% if @sala.instrumentos.count > 0 %>
+  <p><strong>Instrumentos:</strong></p>
+  <ul>
+  	<% @sala.instrumentos.each do |instrumento| %>
+    <li><p><%= instrumento.nombre %></p></li>
+  	<% end %>
+  </ul>
+  <% end %>
+  <% if current_user.id == @sala.creator_id %>
+	  <% if @sala.reservas.count > 0 %>
+	  <p><strong>Reservas:</strong></p>
+	  <ul>
+	  	<% @sala.reservas.each do |reserva| %>
+	    <li><p>Reservado el <%= reserva.created_at %> por <%= reserva.user.name %> [ <%= reserva.user.nick %> ]</p></li>
+	  	<% end %>
+	  </ul>
+	  <% end %>
+  <% end %>
+</div>
+<div class="map_content">
+	<div id="map_canvas" style="margin-top: 15px; height: 400px; width: 400px;"></div>
+</div>
 <script type="text/javascript">
   var GMaps = google.maps;
   var map, marker, infowindow;
@@ -83,7 +95,7 @@
       map: map,
       title: markerTitle
     });
-    marker.setAnimation(GMaps.Animation.DROP);
+    marker.setAnimation(GMaps.Animation.BOUNCE);
   }
 
   function createInfoWindow(infoContent) {
@@ -93,7 +105,7 @@
     GMaps.event.addListener(marker, 'click', function() {
       infowindow.open(map, marker);
     });
-    infowindow.open(map, marker);
+    /*infowindow.open(map, marker);*/
   }
 
   function initialize() {
