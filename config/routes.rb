@@ -58,6 +58,7 @@ ProyectoSalasensayo::Application.routes.draw do
   match "/mapview" => "Salas#map"
   match "/search" => "Salas#search"
   match "/salas/:id/like", :to => "salas#like", as: "like_sala"
+  match "/reservas/:sala_id/book", :to => "reservas#book", as: "book_sala"
 
   # See how all your routes lay out with "rake routes"
 

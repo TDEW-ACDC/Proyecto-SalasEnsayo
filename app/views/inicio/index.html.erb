@@ -1,14 +1,10 @@
-<div data-role="page">
-	<div data-role="header">
-		<h1>La Sala.PE</h1>
-	</div><!-- /header -->
-	<div data-role="content">
-		<% if current_user %>
-			<%= link_to "List View", "/listview", "data-role" => "button", "data-icon" => "arrow-r", "data-iconpos" => "right", "data-ajax" => "false" %>
-			<%= link_to "Map View", "/mapview", "data-role" => "button", "data-icon" => "arrow-r", "data-iconpos" => "right", "data-ajax" => "false" %>
-			<%= link_to 'Salir', signout_path, "data-role" => "button", "data-icon" => "delete", "data-theme" => "b" %>
-		<% else %>
-			<%= link_to "Ingresar con Twitter", "/auth/twitter", "data-role" => "button", "data-icon" => "star", "data-ajax" => "false" %>
-		<% end %>
-	</div><!-- /content -->
-</div><!-- /page -->
+<% content_for :header do %>
+	<h1>La Sala.PE :: Home</h1>
+<% end %>
+<% if current_user %>
+	Bienvenido! <%= current_user.name %>
+	<%= link_to "List View", "/listview", "data-role" => "button", "data-icon" => "arrow-r", "data-iconpos" => "right", "data-ajax" => "false" %>
+	<%= link_to "Map View", "/mapview", "data-role" => "button", "data-icon" => "arrow-r", "data-iconpos" => "right", "data-ajax" => "false" %>
+<% else %>
+	<%= link_to "Ingresar con Twitter", "/auth/twitter", "data-role" => "button", "data-icon" => "star", "data-ajax" => "false" %>
+<% end %>

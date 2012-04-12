@@ -1,29 +1,20 @@
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-<div id="details" data-role="page" class="details-page">
-  <div data-role="header">
-    <%= link_to 'Back', "/", "data-icon" => "back", "data-theme" => "b" %>
-    <h1>Map View</h1>
-    <%= link_to 'Search', "/search", "data-icon" => "search", "data-theme" => "b" %>
-  </div><!-- /header -->
-  <div data-role="content" class="map_content">
-
-  	<% if @salas.count > 0 %>
-    <div class="map_content">
-      <div id="map_canvas"></div>
-    </div>
-  	<% else %>
-  	<div class="ui-bar ui-bar-e">
-			<h3 style="float:left; margin-top:8px;">No se encontraron salas.</h3>
-			<div style="float:right; margin-top:4px;">
-				<%= link_to 'Home', "/search", "data-role" => "button", "data-icon" => "search", "data-iconpos" => "notext" %>
-			</div>
-			<p style="clear:both; font-size:85%; margin-bottom:8px;">
-				Prueba seleccionando algunas condiciones de búsqueda.
-			</p>
-		</div>
-  	<% end %>
-  </div><!-- /content -->
-</div><!-- /page -->
+<% content_for :header do %>
+  <%= link_to 'Back', "/", "data-icon" => "back", "data-theme" => "b" %>
+  <h1>Map View</h1>
+<% end %>
+<% if @salas.count > 0 %>
+<div class="map_content">
+  <div id="map_canvas"></div>
+</div>
+<% else %>
+<div class="ui-bar ui-bar-e">
+	<h3 style="float:left; margin-top:8px;">No se encontraron salas.</h3>
+	<p style="clear:both; font-size:85%; margin-bottom:8px;">
+		Prueba ingrsando a la opción 'List View' del Home de la aplicación.
+	</p>
+</div>
+<% end %>
+<% if @salas.count > 0 %>
 <script type="text/javascript">
   var GMaps = google.maps;
   var map, infowindow;
@@ -102,3 +93,4 @@
     <% end %>
   });
 </script>
+<% end %>

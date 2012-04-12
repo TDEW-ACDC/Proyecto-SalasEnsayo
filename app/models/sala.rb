@@ -1,6 +1,7 @@
 class Sala < ActiveRecord::Base
 	acts_as_voteable
 	has_and_belongs_to_many :instrumentos
+	has_many :reservas
 
 	def self.search(nombre)
 	  if nombre
