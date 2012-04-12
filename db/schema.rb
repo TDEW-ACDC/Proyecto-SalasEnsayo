@@ -24,6 +24,17 @@ ActiveRecord::Schema.define(:version => 20120411064020) do
     t.integer "sala_id"
   end
 
+  create_table "roles", :force => true do |t|
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "roles_users", :force => true do |t|
+    t.integer "role_id"
+    t.integer "user_id"
+  end
+
   create_table "salas", :force => true do |t|
     t.string   "nombre"
     t.string   "direccion"

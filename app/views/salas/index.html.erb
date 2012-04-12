@@ -15,9 +15,11 @@
           <p><%= sala.telefono %></p>
           <p><%= sala.email %></p>
           <p><strong>Instrumentos:</strong></p>
+          <ul>
           <% sala.instrumentos.each do |instrumento| %>
-            <p>-<%= instrumento.nombre %></p>
+            <li><p><%= instrumento.nombre %></p></li>
           <%end%>
+          </ul>
         </a>
         <%= link_to 'Edit', edit_sala_path(sala), "data-icon" => "gear", "data-ajax" => "false" %>
       </li>

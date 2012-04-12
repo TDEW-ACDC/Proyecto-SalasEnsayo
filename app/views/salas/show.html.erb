@@ -33,6 +33,13 @@
         <b>Costo:</b>
         <%= @sala.costo %>
       </p>
+
+      <p><strong>Instrumentos:</strong></p>
+      <ul>
+      <% @sala.instrumentos.each do |instrumento| %>
+          <li><p><%= instrumento.nombre %></p></li>
+      <%end%>
+      </ul>
     </ul>
     <div class="map_content">
       <div id="map_canvas"></div>
