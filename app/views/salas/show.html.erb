@@ -6,11 +6,18 @@
     <%= link_to 'Edit', edit_sala_path, "data-icon" => "gear", "data-ajax" => "false" %>
   </div><!-- /header -->
 
-  <div>
+  <div><!-- /Recomendar -->
   <% if Vote.where(:voter_id => current_user.id, :voteable_id => @sala.id, ).count > 0 %>
-    <div data-role="button", data-inline="true"> <%= Vote.where(:voteable_id => @sala.id).count %> Likes </div>
+    <div data-role="button", data-inline="true">
+    <% if Vote.where(:voteable_id => @sala.id).count > 1 %>
+        <%= Vote.where(:voteable_id => @sala.id).count %> personas lo recomiendan
+    <%else%>
+        Tu lo recomiendas
+    <% end %>
+    </div>
   <% else %>
-    <%= link_to 'Like', like_sala_path(@sala), :method => :sala, "data-role" => "button", "data-icon" => "plus", "data-inline" => "true", "data-theme" => "b"%>
+    <%= link_to 'Recomendar', like_sala_path(@sala), :method => :sala, "data-role" => "button", "data-icon" => "plus", "data-inline" => "true", "data-theme" => "b"%>
+    <div data-role="button", data-inline="true"> <%= Vote.where(:voteable_id => @sala.id).count %> personas lo recomiendan </div>
   <% end %>
   </div>
   

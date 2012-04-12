@@ -116,11 +116,9 @@ class SalasController < ApplicationController
   def like
     begin
       @sala = Sala.find(params[:id])
-      current_user.vote_for(@sala)
-
+      current_user.vote(@sala)
       redirect_to sala_path(@sala)
     end
-
   end
 
 end
